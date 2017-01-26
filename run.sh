@@ -9,7 +9,7 @@ StartMySQL ()
 
 CreateMySQLUser()
 {
-    echo ".......................... () Creating MySQL user ${MYSQL_USER} with ${MYSQL_PASSWORD} password ......"
+    echo ".......................... () Creating MySQL user ${MYSQL_USER} with ${MYSQL_PASSWORD} password ................"
     mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}'"
     mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' WITH GRANT OPTION"
     echo "=> Done!"
@@ -26,7 +26,7 @@ CreateMySQLUser()
 OnCreateDB()
 {    
         echo ".......................... () Creating MySQL databases............................................"
-        mysql -uroot -e "CREATE DATABASE  IF NOT EXISTS '${MYSQL_DATABASE}' DEFAULT CHARSET=utf8;"
+        mysql -uroot -e "CREATE DATABASE  IF NOT EXISTS ${MYSQL_DATABASE} DEFAULT CHARSET=utf8;"
 }
 
 StartMySQL
